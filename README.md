@@ -1,6 +1,6 @@
 <img width="1477" height="1307" alt="image" src="https://github.com/user-attachments/assets/f6d4b8a2-e7ba-449b-85a4-62660593b1cd" /># Vision Transformer (ViT) — Food Image Classification
 
-![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/2d6c3d06420eb3289671182f15d5e77663c3c475/screenshots/Screenshot%202025-08-31%20091723.png) 
+![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/cb819e4dff293d8bc29619158cb3541ff7c24d8e/screenshots/Screenshot%202025-08-31%20091742.png) 
 
 
 *Model training loss.*
