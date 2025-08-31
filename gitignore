@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and models (do not commit large files)
+data/
+models/
+# keep a README in models if you want users to know where to download weights
+!models/README.md
+
+# Checkpoints and weights
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Logs
+logs/
+logging/
+
+# Streamlit temporary files
+.streamlit/
+
+# Environment files
+.env
+.env.*
+
+# Misc
+.coverage
