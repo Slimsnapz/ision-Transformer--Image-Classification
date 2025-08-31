@@ -1,161 +1,131 @@
-# **Vision Transformer — Image Classification (Portfolio Project)**
+# Vision Transformer (ViT) — Food Image Classification
 
-![Dashboard Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/57d625866f6cd995657d4012cc9a822cb05c00e0/screenshots/Screenshot%202025-08-31%20091723.png)  
-![Dashboard Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/4ae5c3cedfb8a7c16d85fd29ce95854c1379e37c/screenshots/Screenshot%202025-08-31%20091742.png)  
-Model training loss
+![Project Screenshot](path/to/screenshot.png)  
+*Replace with a training/evaluation screenshot or a snapshot of the Streamlit demo.*
 
+---
 
+## Project summary (what I built)
+I built an end-to-end image classification pipeline that fine-tunes a **Vision Transformer (ViT)** model to classify food images into 20 dish categories. This project was implemented to solve a practical business problem: automatically tagging and categorizing dish images uploaded by restaurants and users for a food-delivery platform. The solution improves catalog accuracy, enhances search and recommendations, and reduces manual labeling effort.
 
-## Project Summary
+This repository contains the training and evaluation code, a lightweight Streamlit demo for quick model inspection, and helper scripts to download the trained model weights (hosted externally due to size).
 
-**Problem:** A fast-growing food delivery company needs to automatically classify images of dishes uploaded by partner restaurants and users. Manually labeling images is slow and error-prone, leading to miscategorized menus, poor search results, and suboptimal recommendations. This project builds a Vision Transformer (ViT) image classification pipeline to automate dish/cuisine classification, improving catalog accuracy, search relevance, and recommendation quality delivering direct business value in operational efficiency and customer experience.
+---
 
-**My role:** I designed and implemented an end-to-end solution — from dataset preparation and model fine-tuning to deployment as a lightweight Streamlit demo — demonstrating how machine learning can solve a practical business problem.
+## What I did (technical summary)
+- **Dataset:** Used `rajistics/indian_food_images` from Hugging Face (20 classes, images per class limited).
+- **Preprocessing & Augmentation:** Standard ViT-compatible transforms, normalized with the model processor means/std. Performed RandomResizedCrop and conversion to pixel tensors before feeding into the model.
+- **Model:** Fine-tuned `google/vit-base-patch16-224-in21k` using Hugging Face `Trainer` and `AutoModelForImageClassification`.
+- **Training setup (used in experiments):**
+  - Learning rate: `5e-5`
+  - Batch size: `16` (train), `4` (eval)
+  - Gradient accumulation: `4`
+  - Epochs: `4`
+  - Evaluation: `eval per epoch`, save best model by `accuracy`
+  - Compute metrics: accuracy (primary). Confusion matrix and per-class review performed in notebooks.
+- **Evaluation:** Model evaluation performed on the dataset test/validation split with accuracy and class-level inspection (confusion matrices). *(Replace the values below with the final metrics from your run.)*
+  - Example (placeholder): **Validation accuracy:** `0.88` — **Test accuracy:** `0.86`
+- **Deployment / Demo:** Built a Streamlit demo (`src/app.py`) allowing stakeholders to upload images and view model predictions (top-k labels and probabilities).
 
+---
 
+## Business impact (why this matters)
+- **Operational efficiency:** Automatically tags dish images during ingestion, removing the need for manual labeling pipelines.
+- **Product quality:** Better search and recommendation signals (correct categorization) improve user experience and conversion.
+- **Scalability:** The solution is trained via widely-adopted frameworks (Hugging Face / PyTorch) and can be retrained as new labeled data arrives.
 
-## Key Outcomes & Business Impact
+---
 
-- Automated image classification reduces manual labeling overhead and speeds up onboarding of new restaurant partners.
-- Improved menu search & recommendation accuracy → better user experience and potential uplift in conversion.
-- Quick validation tool (Streamlit demo) to allow non-technical staff to test and verify model outputs before production rollout.
-- Scalable training using Hugging Face `Trainer` for repeatable, auditable experiments.
+## Where the trained model lives
+The trained model (~321 MB) is **not** tracked in this repository. It is hosted on Google Drive and can be downloaded using the instructions in `models/README.md` or using the helper script in `scripts/`. Public Drive folder:
 
+https://drive.google.com/drive/folders/1uRqL_HsX_7a1NSVUug79N7Y6T7YeJchk?usp=sharing
 
+After downloading and placing the model at `models/indian_food_vit/`, load it like this:
 
-## Technical Highlights
+```python
+from transformers import AutoModelForImageClassification, AutoImageProcessor
+model = AutoModelForImageClassification.from_pretrained("models/indian_food_vit")
+processor = AutoImageProcessor.from_pretrained("models/indian_food_vit")
+```
 
-- Model: **Vision Transformer (ViT)** — `google/vit-base-patch16-224-in21k` (fine-tuned).
-- Frameworks: Hugging Face `transformers`, `datasets`, PyTorch, `torchvision`, `evaluate`.
-- Deployment demo: **Streamlit** app (`app.py`) for non-technical stakeholder demos.
-- Reproducibility: training script (`train.py`) with `TrainingArguments`, evaluation script (`eval.py`), and inference script (`predict.py`).
+---
 
-
-
-## File structure (what to upload to GitHub)
-
+## File structure (what's included in the repo)
 ```
 / (root)
 ├─ notebooks/
-│  └─ Vision_Transformers_Image_classification.ipynb   # Original Colab notebook (cleaned)
+│  └─ Vision_Transformers_Image_classification.ipynb   # original Colab notebook (cleaned) — training & EDA
 ├─ src/
-│  ├─ data_loader.py    # dataset + processor helpers
+│  ├─ data_loader.py    # dataset & processor helpers
 │  ├─ train.py          # training script (Trainer-based)
 │  ├─ eval.py           # evaluation script
 │  ├─ predict.py        # single-image prediction script
-│  └─ app.py            # Streamlit demo app for non-technical demos
-├─ models/              # saved checkpoints (do not commit large binaries)
-│  └─ README.md         # instructions for storing checkpoints (Git LFS or cloud)
+│  └─ app.py            # Streamlit demo app for stakeholders
+├─ scripts/
+│  ├─ get_model_from_drive.sh   # bash helper to download zipped model via gdown
+│  └─ download_model.py         # python helper to download & unzip model
+├─ models/              # NOT committed (large files) — include models/README.md (tracked)
+│  └─ README.md         # instructions for downloading trained weights (tracked)
 ├─ screenshots/
 │  └─ training_loss.png
 ├─ requirements.txt
+├─ .gitignore
 ├─ README.md            # (this file)
-└─ .gitignore
+└─ LICENSE
 ```
 
-**Notes:**
-- Don't commit large model checkpoints to the repo. Use Git LFS or a cloud storage link and reference it in `/models/README.md`.
-- Place small example images for the demo in `screenshots/demo_images/` if desired.
+---
 
-
-
-## How this solves the business problem (short)
-
-1. **Ingest images** from partners and customers into a standardized dataset (notebooks show cleaning & transforms).  
-2. **Fine-tune a ViT model** with labeled examples so the classifier learns cuisine/dish categories.  
-3. **Evaluate** model performance and iterate using metrics (accuracy, confusion matrices).  
-4. **Deploy a demo** (Streamlit) for stakeholders to validate the model on real images.  
-5. **Operationalize**: integrate predictions into the product pipeline to auto-tag images and enhance search/recommendation features.
-
-
-
-## Quickstart - Run locally (recommended)
-
-1. Clone the repository
+## Quickstart — run the demo locally (minimal steps)
+1. Clone the repo:
 ```bash
 git clone https://github.com/<YourUsername>/vit-image-classification.git
 cd vit-image-classification
 ```
 
-2. Create virtual environment & install dependencies
+2. Create and activate a virtual environment:
 ```bash
 python -m venv venv
-# macOS / Linux
-source venv/bin/activate
-# Windows
-# venv\Scripts\activate
-
+source venv/bin/activate   # macOS / Linux
+# venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 ```
 
-3. Train (example)
+3. Download the trained model and place at `models/indian_food_vit/` (see `models/README.md` or use `scripts/download_model.py`).
+
+4. Run a single-image prediction:
+```bash
+python src/predict.py --model_dir models/indian_food_vit --image_path path/to/image.jpg
+```
+
+5. Run the Streamlit demo:
+```bash
+streamlit run src/app.py -- --model_dir models/indian_food_vit
+# Open the local URL shown in the terminal (usually http://localhost:8501)
+```
+
+6. To retrain from scratch (if you want to reproduce training):
 ```bash
 python src/train.py --dataset rajistics/indian_food_images --model_ckpt google/vit-base-patch16-224-in21k --output_dir models/exp1
 ```
 
-4. Evaluate
-```bash
-python src/eval.py --model_dir models/exp1 --dataset rajistics/indian_food_images
-```
+This will fine-tune the ViT model using the training configuration described above. Training time depends on your hardware (GPU recommended).
 
-5. Predict a single image
-```bash
-python src/predict.py --model_dir models/exp1 --image_path path/to/image.jpg
-```
+---
 
-6. Run Streamlit demo (non-technical stakeholders)
-```bash
-streamlit run src/app.py -- --model_dir models/exp1
-# then open the URL shown in the terminal (usually http://localhost:8501)
-```
+## Notes, caveats & next steps
+- **Data balance & augmentation:** Since the dataset has relatively few images per class, consider additional augmentations or semi-supervised strategies for production-grade performance.
+- **Model size & inference:** ViT-base is moderately large; for CPU-first deployments consider quantization or a smaller backbone.
+- **Evaluation:** Add per-class precision/recall and a calibration analysis before production deployment.
+- **Model hosting:** For easier distribution, consider uploading the model to Hugging Face Hub in the future.
 
+---
 
+## Contact
+If you review this project and want to discuss details, reproduce the results, or see a live demo, reach out: **your.email@example.com**
 
-## Requirements (`requirements.txt` suggested content)
+---
 
-```
-transformers>=4.30.0
-datasets
-torch
-torchvision
-accelerate
-evaluate
-streamlit
-Pillow
-scikit-learn
-```
-
-Add GPU drivers/CUDA toolkit if training on GPU.
-
-
-
-## What to include in the repo to impress employers
-
-- Well-documented **README** (this file).  
-- Clean `notebooks/` (one runnable notebook or a Colab link).  
-- `src/` scripts with CLI flags (so reviewers can run training/eval easily).  
-- `requirements.txt` and short **Quickstart** (above).  
-- `MODEL_CARD.md` (model purpose, limitations, ethical considerations).  
-- Small demo (Streamlit) and screenshots or a short screencast.
-
-
-
-## Suggested README blurb (short version for repo front page)
-
-> Vision Transformer (ViT) fine-tuned for image classification (food/dish/cuisine). Solves the business problem of automatically tagging and categorizing dish images for a food-delivery platform, reducing manual labeling, improving search and recommendations, and speeding partner onboarding. Includes training, evaluation, inference scripts, and a Streamlit demo.
-
-
-## License & Contact
-
-**License:** MIT (or choose your preferred license)  
-**Author:** _Your Name / GitHub handle_  
-**Contact:** _your.email@example.com_ | [LinkedIn](https://www.linkedin.com/in/yourprofile)
-
-
-
-If you'd like, I can:
-1. Save this README into `/mnt/data/README.md` so you can download it directly (I already saved it here), or  
-2. Create `requirements.txt`, `.gitignore`, `models/README.md`, and `MODEL_CARD.md` files in the folder so you can upload them as a complete package.  
-3. Create a zipped project of the `src/` scripts and README for direct upload.
-
-Tell me which of (2) or (3) you want me to produce next and I will create them now.
+**Author:** _Your Name (GitHub: @YourUsername)_  
+**License:** MIT
