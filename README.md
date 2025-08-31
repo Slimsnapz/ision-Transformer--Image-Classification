@@ -1,16 +1,16 @@
-# Vision Transformer (ViT) — Food Image Classification
+<img width="1477" height="1307" alt="image" src="https://github.com/user-attachments/assets/f6d4b8a2-e7ba-449b-85a4-62660593b1cd" /># Vision Transformer (ViT) — Food Image Classification
 
-![Project Screenshot](path/to/screenshot.png)  
+![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/2d6c3d06420eb3289671182f15d5e77663c3c475/screenshots/Screenshot%202025-08-31%20091723.png)  
 *Replace with a training/evaluation screenshot or a snapshot of the Streamlit demo.*
 
----
+
 
 ## Project summary (what I built)
 I built an end-to-end image classification pipeline that fine-tunes a **Vision Transformer (ViT)** model to classify food images into 20 dish categories. This project was implemented to solve a practical business problem: automatically tagging and categorizing dish images uploaded by restaurants and users for a food-delivery platform. The solution improves catalog accuracy, enhances search and recommendations, and reduces manual labeling effort.
 
 This repository contains the training and evaluation code, a lightweight Streamlit demo for quick model inspection, and helper scripts to download the trained model weights (hosted externally due to size).
 
----
+
 
 ## What I did (technical summary)
 - **Dataset:** Used `rajistics/indian_food_images` from Hugging Face (20 classes, images per class limited).
@@ -27,14 +27,14 @@ This repository contains the training and evaluation code, a lightweight Streaml
   - Example (placeholder): **Validation accuracy:** `0.88` — **Test accuracy:** `0.86`
 - **Deployment / Demo:** Built a Streamlit demo (`src/app.py`) allowing stakeholders to upload images and view model predictions (top-k labels and probabilities).
 
----
+
 
 ## Business impact (why this matters)
 - **Operational efficiency:** Automatically tags dish images during ingestion, removing the need for manual labeling pipelines.
 - **Product quality:** Better search and recommendation signals (correct categorization) improve user experience and conversion.
 - **Scalability:** The solution is trained via widely-adopted frameworks (Hugging Face / PyTorch) and can be retrained as new labeled data arrives.
 
----
+
 
 ## Where the trained model lives
 The trained model (~321 MB) is **not** tracked in this repository. It is hosted on Google Drive and can be downloaded using the instructions in `models/README.md` or using the helper script in `scripts/`. Public Drive folder:
@@ -49,7 +49,7 @@ model = AutoModelForImageClassification.from_pretrained("models/indian_food_vit"
 processor = AutoImageProcessor.from_pretrained("models/indian_food_vit")
 ```
 
----
+
 
 ## File structure (what's included in the repo)
 ```
@@ -75,7 +75,7 @@ processor = AutoImageProcessor.from_pretrained("models/indian_food_vit")
 └─ LICENSE
 ```
 
----
+
 
 ## Quickstart — run the demo locally (minimal steps)
 1. Clone the repo:
@@ -112,7 +112,6 @@ python src/train.py --dataset rajistics/indian_food_images --model_ckpt google/v
 
 This will fine-tune the ViT model using the training configuration described above. Training time depends on your hardware (GPU recommended).
 
----
 
 ## Notes, caveats & next steps
 - **Data balance & augmentation:** Since the dataset has relatively few images per class, consider additional augmentations or semi-supervised strategies for production-grade performance.
@@ -120,7 +119,6 @@ This will fine-tune the ViT model using the training configuration described abo
 - **Evaluation:** Add per-class precision/recall and a calibration analysis before production deployment.
 - **Model hosting:** For easier distribution, consider uploading the model to Hugging Face Hub in the future.
 
----
 
 ## Contact
 If you review this project and want to discuss details, reproduce the results, or see a live demo, reach out: **your.email@example.com**
