@@ -3,7 +3,7 @@
 ![Project Screenshot](path/to/screenshot.png)  
 *Replace the path above with your training/evaluation screenshot or demo image.*
 
----
+
 
 ## Project Summary (Business Problem)
 
@@ -11,7 +11,7 @@
 
 **My role:** I designed and implemented an end-to-end solution — from dataset preparation and model fine-tuning to deployment as a lightweight Streamlit demo — demonstrating how machine learning can solve a practical business problem.
 
----
+
 
 ## Key Outcomes & Business Impact
 
@@ -20,7 +20,7 @@
 - Quick validation tool (Streamlit demo) to allow non-technical staff to test and verify model outputs before production rollout.
 - Scalable training using Hugging Face `Trainer` for repeatable, auditable experiments.
 
----
+
 
 ## Technical Highlights
 
@@ -29,7 +29,7 @@
 - Deployment demo: **Streamlit** app (`app.py`) for non-technical stakeholder demos.
 - Reproducibility: training script (`train.py`) with `TrainingArguments`, evaluation script (`eval.py`), and inference script (`predict.py`).
 
----
+
 
 ## File structure (what to upload to GitHub)
 
@@ -56,7 +56,7 @@
 - Don't commit large model checkpoints to the repo. Use Git LFS or a cloud storage link and reference it in `/models/README.md`.
 - Place small example images for the demo in `screenshots/demo_images/` if desired.
 
----
+
 
 ## How this solves the business problem (short)
 
@@ -66,7 +66,7 @@
 4. **Deploy a demo** (Streamlit) for stakeholders to validate the model on real images.  
 5. **Operationalize**: integrate predictions into the product pipeline to auto-tag images and enhance search/recommendation features.
 
----
+
 
 ## Quickstart — Run locally (recommended)
 
@@ -108,7 +108,7 @@ streamlit run src/app.py -- --model_dir models/exp1
 # then open the URL shown in the terminal (usually http://localhost:8501)
 ```
 
----
+
 
 ## Requirements (`requirements.txt` suggested content)
 
@@ -126,7 +126,7 @@ scikit-learn
 
 Add GPU drivers/CUDA toolkit if training on GPU.
 
----
+
 
 ## Recommended GitHub workflow and tips
 
@@ -144,7 +144,7 @@ models/*
 - Include `models/README.md` with instructions on where to download trained weights or how to run training to reproduce them.
 - Add a short demo video or GIF in `screenshots/` to increase recruiter engagement.
 
----
+
 
 ## What to include in the repo to impress employers
 
@@ -155,13 +155,12 @@ models/*
 - `MODEL_CARD.md` (model purpose, limitations, ethical considerations).  
 - Small demo (Streamlit) and screenshots or a short screencast.
 
----
+
 
 ## Suggested README blurb (short version for repo front page)
 
 > Vision Transformer (ViT) fine-tuned for image classification (food/dish/cuisine). Solves the business problem of automatically tagging and categorizing dish images for a food-delivery platform, reducing manual labeling, improving search and recommendations, and speeding partner onboarding. Includes training, evaluation, inference scripts, and a Streamlit demo.
 
----
 
 ## License & Contact
 
@@ -169,7 +168,7 @@ models/*
 **Author:** _Your Name / GitHub handle_  
 **Contact:** _your.email@example.com_ | [LinkedIn](https://www.linkedin.com/in/yourprofile)
 
----
+
 
 If you'd like, I can:
 1. Save this README into `/mnt/data/README.md` so you can download it directly (I already saved it here), or  
