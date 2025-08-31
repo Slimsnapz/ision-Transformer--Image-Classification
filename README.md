@@ -7,7 +7,7 @@
 
 
 
-## Project summary (what I built)
+## Project summary
 I built an end-to-end image classification pipeline that fine-tunes a **Vision Transformer (ViT)** model to classify food images into 20 dish categories. This project was implemented to solve a practical business problem: automatically tagging and categorizing dish images uploaded by restaurants and users for a food-delivery platform. The solution improves catalog accuracy, enhances search and recommendations, and reduces manual labeling effort.
 
 This repository contains the training and evaluation code, a lightweight Streamlit demo for quick model inspection, and helper scripts to download the trained model weights (hosted externally due to size).
@@ -123,9 +123,8 @@ This will fine-tune the ViT model using the training configuration described abo
 
 
 ## Contact
-If you review this project and want to discuss details, reproduce the results, or see a live demo, reach out: **your.email@example.com**
+If you review this project and want to discuss details, reproduce the results, or see a live demo, reach out: **slimsnaps@gmail.com**
 
 ---
 
-**Author:** _Your Name (GitHub: @YourUsername)_  
 **License:** MIT
