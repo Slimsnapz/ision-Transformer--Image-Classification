@@ -5,7 +5,7 @@ The trained Vision Transformer (ViT) model for this project (~321 MB) is **not**
 **Google Drive folder (public):**  
 https://drive.google.com/drive/folders/1uRqL_HsX_7a1NSVUug79N7Y6T7YeJchk?usp=sharing
 
----
+
 
 ## Option 1 — Quick manual download (recommended for non-technical users)
 
@@ -30,7 +30,7 @@ model = AutoModelForImageClassification.from_pretrained("models/indian_food_vit"
 processor = AutoImageProcessor.from_pretrained("models/indian_food_vit")
 ```
 
----
+
 
 ## Option 2 — Automated download (if the model was uploaded as a single ZIP file)
 
@@ -51,7 +51,7 @@ unzip indian_food_vit.zip -d models/indian_food_vit
 
 3. Then load as shown above.
 
----
+
 
 ## Option 3 — Scripted download helper (provided in `scripts/`)
 
@@ -71,7 +71,6 @@ or using the Python helper:
 python scripts/download_model.py --file-id <FILE_ID> --out indian_food_vit.zip
 ```
 
----
 
 ## Notes & Tips
 
