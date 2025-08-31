@@ -1,6 +1,6 @@
 # **Vision Transformer — Image Classification (Portfolio Project)**
 
-![Dashboard Screenshot]()  
+![Dashboard Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/57d625866f6cd995657d4012cc9a822cb05c00e0/screenshots/Screenshot%202025-08-31%20091723.png)  
 
 
 
