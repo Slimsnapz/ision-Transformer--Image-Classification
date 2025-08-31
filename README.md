@@ -6,9 +6,9 @@ Model training loss
 
 
 
-## Project Summary (Business Problem)
+## Project Summary
 
-**Problem:** A fast-growing food delivery company needs to automatically classify images of dishes uploaded by partner restaurants and users. Manually labeling images is slow and error-prone, leading to miscategorized menus, poor search results, and suboptimal recommendations. This project builds a Vision Transformer (ViT) image classification pipeline to automate dish/cuisine classification, improving catalog accuracy, search relevance, and recommendation quality — delivering direct business value in operational efficiency and customer experience.
+**Problem:** A fast-growing food delivery company needs to automatically classify images of dishes uploaded by partner restaurants and users. Manually labeling images is slow and error-prone, leading to miscategorized menus, poor search results, and suboptimal recommendations. This project builds a Vision Transformer (ViT) image classification pipeline to automate dish/cuisine classification, improving catalog accuracy, search relevance, and recommendation quality delivering direct business value in operational efficiency and customer experience.
 
 **My role:** I designed and implemented an end-to-end solution — from dataset preparation and model fine-tuning to deployment as a lightweight Streamlit demo — demonstrating how machine learning can solve a practical business problem.
 
@@ -69,7 +69,7 @@ Model training loss
 
 
 
-## Quickstart — Run locally (recommended)
+## Quickstart - Run locally (recommended)
 
 1. Clone the repository
 ```bash
@@ -126,24 +126,6 @@ scikit-learn
 ```
 
 Add GPU drivers/CUDA toolkit if training on GPU.
-
-
-
-## Recommended GitHub workflow and tips
-
-- Create a clean `main` branch with the notebook moved to `notebooks/` and scripts under `src/`.
-- Add `.gitignore` to exclude virtual envs, checkpoint files, and large data:
-```
-__pycache__/
-venv/
-*.pyc
-models/*
-!models/README.md
-.DS_Store
-```
-- Use **Git LFS** for model checkpoint artifacts (or store model weights in cloud: S3 / Google Drive / Hugging Face Hub).
-- Include `models/README.md` with instructions on where to download trained weights or how to run training to reproduce them.
-- Add a short demo video or GIF in `screenshots/` to increase recruiter engagement.
 
 
 
