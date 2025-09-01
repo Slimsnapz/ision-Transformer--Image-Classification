@@ -79,7 +79,7 @@ processor = AutoImageProcessor.from_pretrained("models/indian_food_vit")
 
 
 
-## Quickstart — run the demo locally (minimal steps)
+## Quickstart run the demo locally (minimal steps)
 1. Clone the repo:
 ```bash
 git clone https://github.com/<YourUsername>/vit-image-classification.git
