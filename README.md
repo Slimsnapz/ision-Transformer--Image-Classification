@@ -5,7 +5,12 @@
 ![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/5c4523264ca1366eaf94d58cb56f853244673797/screenshots/Screenshot%202025-09-21%20072537.png)
 ### APP AFTER LOADING IMAGE TO BE CLASSIFIED
 ![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/5c4523264ca1366eaf94d58cb56f853244673797/screenshots/Screenshot%202025-09-21%20072722.png)
-*Training loss curve. Replace/add confusion matrix and demo screenshots before sharing.*
+### APP AFTER CLASSIFYING IMAGE USING MODEL
+![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/09c281d2917a6c8411358a7221e39a979d7c73db/screenshots/Screenshot%202025-09-21%20072744.png)
+
+
+## TRAINING LOSS CURVE
+
 
 
 ## TL;DR
