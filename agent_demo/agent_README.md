@@ -1,4 +1,4 @@
-# Agent Demo — ViT Image Classifier as a LangChain Tool
+# Agent Demo ViT Image Classifier as a LangChain Tool
 
 This demo shows how to wrap the Vision Transformer classifier as a Tool and integrate it with an LLM via LangChain.
 
