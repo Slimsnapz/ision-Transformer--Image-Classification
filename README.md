@@ -1,22 +1,21 @@
 # Vision Transformer (ViT) — Food Image Classification
 
-![Project Screenshot]()
+![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/5c4523264ca1366eaf94d58cb56f853244673797/screenshots/Screenshot%202025-09-21%20072458.png)
 *Training loss curve. Replace/add confusion matrix and demo screenshots before sharing.*
 
----
 
 ## TL;DR
 Fine-tuned `google/vit-base-patch16-224-in21k` on the **Indian Food Images dataset (20 classes)** for dish classification.  
 Includes reproducible training, evaluation, single-image inference, and a Streamlit demo for stakeholder inspection.  
 Quick demo: `streamlit run src/app.py -- --model_dir models/indian_food_vit`
 
----
+
 
 ## Business problem & solution
 **Problem:** Food-delivery platforms receive thousands of dish images uploaded by restaurants and customers. Manual labeling is slow, inconsistent, and doesn’t scale.  
 **Solution:** This repo provides an end-to-end pipeline that fine-tunes a **Vision Transformer (ViT)** model to automatically classify dishes into 20 categories. The system improves catalog accuracy, enhances search/recommendations, and reduces operational costs by automating tagging.
 
----
+
 
 ## What’s inside (technical summary)
 - **Dataset:** [rajistics/indian_food_images](https://huggingface.co/datasets/rajistics/indian_food_images) (20 dish categories).  
@@ -30,14 +29,14 @@ Quick demo: `streamlit run src/app.py -- --model_dir models/indian_food_vit`
   - Test accuracy: **0.86**  
 - **Deployment:** Lightweight **Streamlit demo** (`src/app.py`) for uploading images and getting predictions (top-k probabilities).
 
----
+
 
 ## Business impact
 - **Efficiency:** Automates dish tagging at ingestion.  
 - **Product quality:** Ensures consistent categories for better recommendations.  
 - **Scalability:** Easily retrained as new data arrives.  
 
----
+
 
 ## Model hosting
 The trained model (~321MB) is not tracked in Git. Download from Google Drive:  
