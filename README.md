@@ -10,7 +10,7 @@
 
 
 ## TRAINING LOSS CURVE
-
+![Project Screenshot](https://github.com/Slimsnapz/ision-Transformer--Image-Classification/blob/2b6bec4242b222d788ca6978149dcc1f555204e5/screenshots/Screenshot%202025-08-31%20091742.png)
 
 
 ## TL;DR
