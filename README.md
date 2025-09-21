@@ -1,6 +1,6 @@
-# Vision Transformer (ViT) — Food Image Classification (Portfolio Project)
+# Vision Transformer (ViT) — Food Image Classification
 
-![Project Screenshot](screenshots/training_loss.png)
+![Project Screenshot]()
 *Training loss curve. Replace/add confusion matrix and demo screenshots before sharing.*
 
 ---
