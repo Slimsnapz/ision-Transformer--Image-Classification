@@ -1,4 +1,3 @@
-%%writefile app.py
 
 """
 app.py
